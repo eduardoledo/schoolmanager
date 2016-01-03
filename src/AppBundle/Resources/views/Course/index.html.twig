@@ -1,0 +1,22 @@
+{# Course:index #}
+{% extends "AppBundle::mainTemplate.html.twig" %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="{{ url('homepage') }}">Home</a> 
+            <i class="icon-angle-right"></i>
+        </li>
+        <li>
+            <a href="{{ url('app_school_index') }}">Schools</a>
+            <i class="icon-angle-right"></i>
+        </li>
+        <li>
+            <a href="{{ url('app_course_index') }}">Courses</a> 
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

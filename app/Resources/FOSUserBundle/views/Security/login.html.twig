@@ -1,0 +1,55 @@
+{% extends "AppBundle::mainTemplate.html.twig" %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block stylesheets %}
+    <style type="text/css">
+        body { background: url('{{ asset('bundles/app/img/bg-login.jpg') }}') !important; }
+    </style>
+{% endblock %}
+
+{% block main %}
+    {% if error %}
+        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+    <div class="login-box">
+        <div class="icons">
+            <a href="index.html"><i class="halflings-icon home"></i></a>
+            <a href="#"><i class="halflings-icon cog"></i></a>
+        </div>
+        <h2>{{ 'Login to your account'|trans }}</h2>
+        <form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
+            <fieldset>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                <div class="input-prepend" title="Username">
+                    <span class="add-on"><i class="halflings-icon user"></i></span>
+                    <input class="input-large span10"
+                           type="text" id="username" name="_username" value="{{ last_username }}" required="required"
+                           placeholder='{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}' />
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="input-prepend" title="Password">
+                    <span class="add-on"><i class="halflings-icon lock"></i></span>
+                    <input class="input-large span10" type="password" id="password" name="_password" required="required"
+                           placeholder='{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}' />
+
+                </div>
+                <div class="clearfix"></div>
+
+                <label class='remember' for="remember_me"><input type="checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+
+                <div class="button-login">
+                    <input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                </div>
+                <div class="clearfix"></div>
+        </form>
+        <hr />
+        <h3>{{ 'Forgot Password?'|trans }}</h3>
+        <p>
+            {{ 'No problem, %s to get a new password.'|format('<a href="' ~ path('fos_user_change_password') ~ '">click here</a>')|raw }}
+        </p>	
+    </div><!--/span-->
+{% endblock %}
