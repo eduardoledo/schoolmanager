@@ -1,0 +1,24 @@
+{% extends "AppBundle::mainTemplate.html.twig" %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block stylesheets %}
+    <style type="text/css">
+        body { background: url('{{ asset('bundles/app/img/bg-login.jpg') }}') !important; }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="login-box">
+        <h2>{{ 'Register'|trans }}</h2>
+        <form class="form-horizontal" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+            <fieldset>
+                {{ form_widget(form) }}
+                <div class="button-login">
+                    <input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+                </div>
+            </fieldset>
+        </form>
+
+    </div><!--/span-->
+{% endblock main %}

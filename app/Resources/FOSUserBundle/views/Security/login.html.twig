@@ -47,9 +47,11 @@
                 <div class="clearfix"></div>
         </form>
         <hr />
-        <h3>{{ 'Forgot Password?'|trans }}</h3>
         <p>
-            {{ 'No problem, %s to get a new password.'|format('<a href="' ~ path('fos_user_change_password') ~ '">click here</a>')|raw }}
-        </p>	
+        <a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgot Password?'|trans }}</a>
+        </p>
+        <p>
+            <a href="{{ path('fos_user_registration_register') }}">{% trans %}Register{% endtrans %}</a>
+        </p>
     </div><!--/span-->
 {% endblock %}

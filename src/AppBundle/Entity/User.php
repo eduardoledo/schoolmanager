@@ -39,7 +39,7 @@ class User extends BaseUser
     private $facebookId;
 
     /**
-     * @var User
+     * @var Collection|School
      *
      * @ORM\OneToMany(targetEntity="School", mappedBy="owner")
      */

@@ -89,6 +89,7 @@ class SchoolController extends Controller
     /**
      * @Route("/{slug}/edit", options={"expose"=true})
      * @Template()
+     * @Secure(roles="ROLE_USER")
      */
     public function editAction(Request $request, Entity\School $school)
     {

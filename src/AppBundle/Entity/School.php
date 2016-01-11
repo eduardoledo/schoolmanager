@@ -77,6 +77,12 @@ class School
      * @ORM\ManyToMany(targetEntity="User", inversedBy="administeredSchools")
      */
     private $administrators;
+    /**
+     * @var User
+     *
+     * @ORM\OneToMany(targetEntity="Course", mappedBy="school")
+     */
+    private $courses;
 
     public function __construct()
     {
